@@ -1,0 +1,48 @@
+---
+title: "Title"
+author: "Dionysis Fanidis"
+date: "Report generated on `r format(Sys.time(), '%d %B, %Y')`"
+output:
+  html_document:
+    theme: lumen
+    code_folding: hide
+---
+
+### Subtitle
+
+```{r setup, include= FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(rmarkdown)
+library(kableExtra)
+library(openxlsx)
+library(ggplot2)
+
+inPath <- "./results"
+outPath <- "."
+
+# Import xlsx (or any other csv in a similar way) 
+xlsx <- "res.xlsx"
+inA <- read.xlsx(file.path(inPath, xlsx), sheet= 1)
+```
+
+### Analysis pipeline brief description
+1. ἄνδρα μοι ἔννεπε, μοῦσα, πολύτροπον, ὃς μάλα πολλὰ
+2. πλάγχθη, ἐπεὶ Τροίης ἱερὸν πτολίεθρον ἔπερσεν·
+3. πολλῶν δ᾽ ἀνθρώπων ἴδεν ἄστεα καὶ νόον ἔγνω, 
+4. πολλὰ δ᾽ ὅ γ᾽ ἐν πόντῳ πάθεν ἄλγεα ὃν κατὰ θυμόν,
+
+### Import image
+```{r, echo= FALSE, fig.cap= "Figure caption", fig.show= "hold", fig.align= "center"}
+knitr::include_graphics(file.path(inPath, "figure.jpeg"))
+```
+
+### Import table
+```{r, warning= FALSE}
+kable(inA, align= rep("c", ncol(inA))) %>%
+	kable_styling(bootstrap_options= "bordered", full_width= FALSE)
+```
+
+### Analysis session info
+```{r, comment= ""}
+cat(readLines(file.path(inPath, "sessionInfo.txt")), sep= "\n")
+```
