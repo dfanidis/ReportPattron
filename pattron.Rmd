@@ -31,9 +31,14 @@ inA <- read.xlsx(file.path(inPath, xlsx), sheet= 1)
 3. πολλῶν δ᾽ ἀνθρώπων ἴδεν ἄστεα καὶ νόον ἔγνω, 
 4. πολλὰ δ᾽ ὅ γ᾽ ἐν πόντῳ πάθεν ἄλγεα ὃν κατὰ θυμόν,
 
-### Import image
+### Import image (.png, .jpeg, etc.)
 ```{r, echo= FALSE, fig.cap= "Figure caption", fig.show= "hold", fig.align= "center"}
 knitr::include_graphics(file.path(inPath, "figure.jpeg"))
+```
+
+### Import images side by side
+```{r, echo= FALSE, fig.cap= "Figure caption", fig.show= "hold", fig.align= "center", out.width= "49%", out.height= "20%"}
+knitr::include_graphics(c(file.path(inPath, "figure.jpeg"),file.path(inPath, "figure.jpeg")))
 ```
 
 ### Import table
