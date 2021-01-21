@@ -14,6 +14,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 library(rmarkdown)
 library(kableExtra)
+library(DT)
 library(openxlsx)
 library(ggplot2)
 
@@ -41,10 +42,34 @@ knitr::include_graphics(file.path(inPath, "figure.jpeg"))
 knitr::include_graphics(c(file.path(inPath, "figure.jpeg"),file.path(inPath, "figure.jpeg")))
 ```
 
-### Import table
+### Import table (simple)
 ```{r, warning= FALSE}
 kable(inA, align= rep("c", ncol(inA))) %>%
 	kable_styling(bootstrap_options= "bordered", full_width= FALSE)
+```
+
+### Import table (DT)
+```{r, warning= FALSE}
+# Note: Up to now I think that DT does not respect out.width option of the Rmd file 
+# (see github DT page issue #762; still open) and thus a wide table may appear truncuated.
+# A possible bypass is to set width= "100%" and then options= list(scrollX= TRUE) 
+# as below (proposed in the aforementioned issue discussion).
+datatable(inA, 
+		rownames= FALSE,
+		escape= FALSE, 
+		filter= "top", 
+		width = '100%',
+		options= list(
+			sDom= '<"top">lrt<"bottom">ip',
+			columnDefs= list(
+				list(
+					className= "dt-center", 
+					targets= "_all"
+				)
+			),
+			scrollX = TRUE
+		)
+  	)
 ```
 
 ### Analysis session info
