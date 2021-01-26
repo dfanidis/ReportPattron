@@ -59,21 +59,21 @@ kable(inA, align= rep("c", ncol(inA))) %>%
 # A possible bypass is to set width= "100%" and then options= list(scrollX= TRUE) 
 # as below (proposed in the aforementioned issue discussion).
 datatable(inA, 
-		rownames= FALSE,
-		escape= FALSE, 
-		filter= "top", 
-		width = '100%',
-		options= list(
-			sDom= '<"top">lrt<"bottom">ip',
-			columnDefs= list(
-				list(
-					className= "dt-center", 
-					targets= "_all"
-				)
-			),
-			scrollX = TRUE
-		)
-  	)
+	rownames= FALSE,
+	escape= FALSE, 
+	filter= "top", 
+	width = '100%',
+	options= list(
+		sDom= '<"top">lrt<"bottom">ip',
+		columnDefs= list(
+			list(
+				className= "dt-center", 
+				targets= "_all"
+			)
+		),
+		scrollX = TRUE
+	)
+)
 ```
 
 ### Import plotly plots
@@ -96,6 +96,10 @@ fig2 <- plot_ly(y = ~rnorm(50, 1), type = "box", boxpoints= "all",
 
 subplot(fig1, fig2, margin = 0.2)
 ```
+
+### Color text (for .html output)
+
+<span style="color: red;">**This sentence uses red-colored and bold fonts.**</span>
 
 ### Analysis session info
 ```{r, comment= ""}
