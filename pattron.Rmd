@@ -4,6 +4,8 @@ author: "Dionysis Fanidis"
 date: "Report generated on `r format(Sys.time(), '%d %B, %Y')`"
 output:
   html_document:
+    toc: true
+    toc_depth: 4
     theme: lumen
     code_folding: hide
 ---
@@ -42,13 +44,15 @@ knitr::include_graphics(file.path(inPath, "figure.jpeg"))
 knitr::include_graphics(c(file.path(inPath, "figure.jpeg"),file.path(inPath, "figure.jpeg")))
 ```
 
-### Import table (simple)
+### Import table
+
+#### Simple
 ```{r, warning= FALSE}
 kable(inA, align= rep("c", ncol(inA))) %>%
 	kable_styling(bootstrap_options= "bordered", full_width= FALSE)
 ```
 
-### Import table (DT)
+#### DT
 ```{r, warning= FALSE}
 # Note: Up to now I think that DT does not respect out.width option of the Rmd file 
 # (see github DT page issue #762; still open) and thus a wide table may appear truncuated.
