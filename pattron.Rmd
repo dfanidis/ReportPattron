@@ -18,7 +18,7 @@ library(rmarkdown)
 library(kableExtra)
 library(DT)
 library(openxlsx)
-library(ggplot2)
+library(plotly)
 
 inPath <- "./results"
 outPath <- "."
@@ -74,6 +74,27 @@ datatable(inA,
 			scrollX = TRUE
 		)
   	)
+```
+
+### Import plotly plots
+
+#### Single
+```{r single-plotly, warning= FALSE}
+fig <- plot_ly(y = ~rnorm(50), type = "box", boxpoints= "all",
+	jitter= 0.3, pointpos= 0)
+fig <- fig %>% add_trace(y = ~rnorm(50, 1))
+fig
+```
+
+#### Side-by-side
+```{r side-by-side, warning= FALSE}
+fig1 <- plot_ly(y = ~rnorm(50), type = "box", boxpoints= "all",
+	jitter= 0.3, pointpos= 0)
+
+fig2 <- plot_ly(y = ~rnorm(50, 1), type = "box", boxpoints= "all",
+	jitter= 0.3, pointpos= 0)
+
+subplot(fig1, fig2, margin = 0.2)
 ```
 
 ### Analysis session info
