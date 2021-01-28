@@ -1,0 +1,11 @@
+/* Text classes */
+h1, h2, h3, h4 {
+	color: #8b0000;
+}
+
+/*TOC's font color*/
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    color: #FFFFFF;
+    background-color: #8b0000;
+    border-color: #8b0000;
+}
