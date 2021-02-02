@@ -9,3 +9,8 @@ h1, h2, h3, h4 {
     background-color: #8b0000;
     border-color: #8b0000;
 }
+
+/*Make font size bigger*/
+p {
+	font-size: 16px;
+}
