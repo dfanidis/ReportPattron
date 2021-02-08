@@ -14,3 +14,10 @@ h1, h2, h3, h4 {
 p {
 	font-size: 16px;
 }
+
+/*Make font size of li, .li-content and li::marker bigger*/
+/*Note: li::marker (the pseudo-element that enable control over the bullet
+symbol auto-created from the browser must be supported by the browser used*/
+li, .li-content, li::marker {
+	font-size: 16px;
+}
