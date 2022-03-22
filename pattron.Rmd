@@ -12,7 +12,7 @@ output:
       smooth_scroll: true
     theme: lumen
     code_folding: hide
-    css: styles.css
+    css: !expr here::here("styles.css")
 ---
 
 ### Subtitle
